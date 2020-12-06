@@ -44,9 +44,13 @@ public class ProgramUtils {
             return ProgramType.MOVIE;
         } else if ((info & Program.INFO_CATEGORIE_SERIES) > 0) {
             return ProgramType.SHOW;
-        } else {
-            return ProgramType.UNKNOWN;
         }
+        // Asuming that everything that has been produced over multiple years is a show
+        int firstProductionYear = program.getIntField(ProgramFieldType.FIRST_PRODUCTION_YEAR);
+        if (firstProductionYear != -1) {
+            return ProgramType.SHOW;
+        }
+        return ProgramType.UNKNOWN;
     }
 
     public enum ProgramType {
