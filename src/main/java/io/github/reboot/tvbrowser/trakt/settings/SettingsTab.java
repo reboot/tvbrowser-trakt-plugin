@@ -44,7 +44,8 @@ class SettingsTab implements CancelableSettingsTab {
 
     private Properties properties;
 
-    SettingsTab(Plugin plugin, SettingsService settingsService,
+    SettingsTab(Plugin plugin,
+                SettingsService settingsService,
                 TraktClientService traktClientService,
                 ScheduledExecutorService executorService,
                 MessageService messageService) {

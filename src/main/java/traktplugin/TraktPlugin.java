@@ -23,8 +23,8 @@ import java.io.File;
 import java.util.Properties;
 
 import org.apache.logging.log4j.core.lookup.MainMapLookup;
-import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
 import devplugin.ActionMenu;
 import devplugin.ImportanceValue;
@@ -37,7 +37,7 @@ import devplugin.Version;
 
 public class TraktPlugin extends Plugin implements PluginSuper {
 
-    private io.github.reboot.tvbrowser.trakt.plugin.Plugin impl;
+    private io.github.reboot.tvbrowser.trakt.plugin.PluginImpl impl;
 
     public TraktPlugin() {
         File tvBrowserUserHome = new File(Plugin.getPluginManager().getTvBrowserSettings().getTvBrowserUserHome());
@@ -48,7 +48,7 @@ public class TraktPlugin extends Plugin implements PluginSuper {
         Properties properties = new Properties();
         properties.put("plugin.dataDir", pluginDataDir.getAbsolutePath());
 
-        PropertyPlaceholderConfigurer propertyPlaceholderConfigurer = new PropertyPlaceholderConfigurer();
+        PropertySourcesPlaceholderConfigurer propertyPlaceholderConfigurer = new PropertySourcesPlaceholderConfigurer();
         propertyPlaceholderConfigurer.setProperties(properties);
 
         @SuppressWarnings("resource")
@@ -59,7 +59,7 @@ public class TraktPlugin extends Plugin implements PluginSuper {
         context.scan("io.github.reboot.tvbrowser.trakt");
         context.refresh();
 
-        impl = context.getBean(io.github.reboot.tvbrowser.trakt.plugin.Plugin.class);
+        impl = context.getBean(io.github.reboot.tvbrowser.trakt.plugin.PluginImpl.class);
     }
 
     public static Version getVersion() {
