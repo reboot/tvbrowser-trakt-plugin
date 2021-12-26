@@ -16,14 +16,18 @@
  */
 package io.github.reboot.tvbrowser.trakt.plugin;
 
+import static org.springframework.context.annotation.AdviceMode.ASPECTJ;
+
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
+@EnableTransactionManagement(mode = ASPECTJ)
 class PluginConfiguration {
 
     @Bean
