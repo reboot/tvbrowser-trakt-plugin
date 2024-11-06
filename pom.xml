@@ -28,7 +28,7 @@
     <repositories>
         <repository>
             <id>tvbrowser-maven-repository</id>
-            <url>http://maven.tvbrowser.org</url>
+            <url>https://maven.tvbrowser.org</url>
         </repository>
     </repositories>
 
