@@ -83,10 +83,10 @@ public class ButtonsFactory {
         };
         sync.putValue(NAME, messageService.getMessage("buttons.sync.name"));
         sync.putValue(SHORT_DESCRIPTION, messageService.getMessage("buttons.sync.description"));
-        sync.putValue(SMALL_ICON, plugin.createImageIcon("trakt", "trakt-icon-red-white", 16));
-        sync.putValue(BIG_ICON, plugin.createImageIcon("trakt", "trakt-icon-red-white", 22));
+        sync.putValue(SMALL_ICON, plugin.createImageIcon("trakt", "trakt-logomark-square-gradient", 16));
+        sync.putValue(BIG_ICON, plugin.createImageIcon("trakt", "trakt-logomark-square-gradient", 22));
 
-        return new ActionMenu(messageService.getMessage("trakt"), plugin.createImageIcon("trakt", "trakt-icon-red-white", 16), new Action[] { sync });
+        return new ActionMenu(messageService.getMessage("trakt"), plugin.createImageIcon("trakt", "trakt-logomark-square-gradient", 16), new Action[] { sync });
     }
 
 }

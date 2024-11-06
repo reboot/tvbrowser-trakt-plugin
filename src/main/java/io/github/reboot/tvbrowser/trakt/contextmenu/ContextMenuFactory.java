@@ -65,7 +65,7 @@ public class ContextMenuFactory {
 
         addIgnoreNull(actions, createAssignTraktItem(program));
 
-        return new ActionMenu(messageService.getMessage("trakt"), plugin.createImageIcon("trakt", "trakt-icon-red-white", 16), actions.toArray());
+        return new ActionMenu(messageService.getMessage("trakt"), plugin.createImageIcon("trakt", "trakt-logomark-square-gradient", 16), actions.toArray());
     }
 
     private Object createAssignTraktItem(Program program) {
@@ -103,7 +103,7 @@ public class ContextMenuFactory {
 
         };
         action.putValue(Action.NAME, name);
-        action.putValue(Action.SMALL_ICON, plugin.createImageIcon("trakt", "trakt-icon-red-white", 16));
+        action.putValue(Action.SMALL_ICON, plugin.createImageIcon("trakt", "trakt-logomark-square-gradient", 16));
 
         return action;
     }
