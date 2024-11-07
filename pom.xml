@@ -18,11 +18,13 @@
     </licenses>
 
     <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
         <slf4j.version>1.7.25</slf4j.version>
         <trakt.clientId>undefined</trakt.clientId>
         <trakt.clientSecret>undefined</trakt.clientSecret>
         <spring.version>5.2.8.RELEASE</spring.version>
-        <aspectj.version>1.8.9</aspectj.version>
+        <aspectj.version>1.9.20.1</aspectj.version>
     </properties>
 
     <repositories>
@@ -100,6 +102,12 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-aspects</artifactId>
             <version>${spring.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.aspectj</groupId>
+                    <artifactId>aspectjweaver</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
 
@@ -111,14 +119,6 @@
             </resource>
         </resources>
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
-            </plugin>
             <plugin>
                 <groupId>uk.co.bithatch</groupId>
                 <artifactId>svg-rasterizer-maven-plugin</artifactId>
@@ -154,7 +154,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>aspectj-maven-plugin</artifactId>
-                <version>1.14.0</version>
+                <version>1.15.0</version>
                 <dependencies>
                     <dependency>
                         <groupId>org.aspectj</groupId>
@@ -163,9 +163,7 @@
                     </dependency>
                 </dependencies>
                 <configuration>
-                    <complianceLevel>1.8</complianceLevel>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <complianceLevel>${maven.compiler.target}</complianceLevel>
                     <showWeaveInfo>true</showWeaveInfo>
                     <verbose>true</verbose>
                     <Xlint>ignore</Xlint>
